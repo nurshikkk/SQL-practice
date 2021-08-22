@@ -82,34 +82,36 @@ CREATE TABLE Warehouses (
 
 #### Answers
 
-1. **Answer**: DELETE FROM Boxes WHERE Warehouse IN (SELECT Code FROM Warehouses WHERE Capacity < (SELECT count(*) FROM Boxes WHERE Warehouse = Warehouses.Code));
+``` sql
+1. DELETE FROM Boxes WHERE Warehouse IN (SELECT Code FROM Warehouses WHERE Capacity < (SELECT count(*) FROM Boxes WHERE Warehouse = Warehouses.Code));
 
-2. **Answer**: SELECT * FROM Warehouses;
+2. SELECT * FROM Warehouses;
 
-3. **Answer**: SELECT * FROM Boxes WHERE Value > 150;
+3. SELECT * FROM Boxes WHERE Value > 150;
 
-4. **Answer**: SELECT DISTINCT Contents FROM Boxes;
+4. SELECT DISTINCT Contents FROM Boxes;
 
-5. **Answer**: SELECT avg(Value) FROM Boxes;
+5. SELECT avg(Value) FROM Boxes;
 
-6. **Answer**: SELECT Warehouse, avg(Value) FROM boxes GROUP BY Warehouse;
+6. SELECT Warehouse, avg(Value) FROM boxes GROUP BY Warehouse;
 
-7. **Answer**: SELECT Warehouse, avg(Value) FROM Boxes GROUP BY Warehouse HAVING avg(Value) > 150;
+7. SELECT Warehouse, avg(Value) FROM Boxes GROUP BY Warehouse HAVING avg(Value) > 150;
 
-8. **Answer**: SELECT Boxes.Code, Location FROM Boxes INNER JOIN Warehouses W on W.Code = Boxes.Warehouse;
+8. SELECT Boxes.Code, Location FROM Boxes INNER JOIN Warehouses W on W.Code = Boxes.Warehouse;
 
-9. **Answer**: SELECT Warehouse, count(*) FROM Boxes GROUP BY Warehouse;
+9. SELECT Warehouse, count(*) FROM Boxes GROUP BY Warehouse;
     
-10. **Answer**: SELECT Code FROM Warehouses WHERE Capacity < (SELECT count(*) FROM Boxes WHERE Warehouse = Warehouses.Code);
+10. SELECT Code FROM Warehouses WHERE Capacity < (SELECT count(*) FROM Boxes WHERE Warehouse = Warehouses.Code);
    
-11. **Answer**: SELECT Boxes.Code FROM Boxes RIGHT JOIN Warehouses W on W.Code = Boxes.Warehouse AND Location = 'Chicago';
+11. SELECT Boxes.Code FROM Boxes RIGHT JOIN Warehouses W on W.Code = Boxes.Warehouse AND Location = 'Chicago';
 
-12. **Answer**: INSERT INTO Warehouses (Code, Location, Capacity) VALUES (6, 'New York', 3);
+12. INSERT INTO Warehouses (Code, Location, Capacity) VALUES (6, 'New York', 3);
 
-13. **Answer**: INSERT INTO Boxes (Code, Contents, Value, Warehouse) VALUES ('H5RT', 'Papers', 200, 2);
+13. INSERT INTO Boxes (Code, Contents, Value, Warehouse) VALUES ('H5RT', 'Papers', 200, 2);
 
-14. **Answer**: UPDATE Boxes SET value = value * 0.85;
+14. UPDATE Boxes SET value = value * 0.85;
 
-15. **Answer**: UPDATE Boxes SET value = value * 0.8 WHERE value > (SELECT avg(Value) FROM (SELECT * FROM Boxes) as "B*");
+15. UPDATE Boxes SET value = value * 0.8 WHERE value > (SELECT avg(Value) FROM (SELECT * FROM Boxes) as "B*");
 
-16. **Answer**: DELETE FROM Boxes WHERE Value < 100;
+16. DELETE FROM Boxes WHERE Value < 100;
+```
