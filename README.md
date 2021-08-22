@@ -1,4 +1,4 @@
-# SQL PPACTICE
+# SQL PRACTICE
 
 ### SQL Practice №1 | The Warehouse
 
